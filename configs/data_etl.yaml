@@ -1,0 +1,20 @@
+parameters:
+  user_full_name: Basit Ali # [First Name(s)] [Last Name]
+  links:
+    # Medium (only articles that are not under the paid wall work)
+    - https://medium.com/decodingml/an-end-to-end-framework-for-production-ready-llm
+    - https://medium.com/decodingml/a-real-time-retrieval-system-for-rag-on-social-media
+    #- https://medium.com/decodingml/sota-python-streaming-pipelines-for-fine-tuning-llms-and-rag-in-real-time-82eb07795b87
+    #- https://medium.com/decodingml/the-4-advanced-rag-algorithms-you-must-know-to-implement-5d0c7f1199d2
+    #- https://medium.com/decodingml/architect-scalable-and-cost-effective-llm-rag-inference-pipelines-73b94ef82a99
+    # Substack
+    - https://decodingml.substack.com/p/real-time-feature-pipelines-with
+    - https://decodingml.substack.com/p/building-ml-systems-the-right-way
+    #- https://decodingml.substack.com/p/reduce-your-pytorchs-code-latency?r=1ttoeh
+    #- https://decodingml.substack.com/p/llm-agents-demystified?r=1ttoeh
+    # posts
+    - https://linkedin.com/feed/post1
+    - https://linkedin.com/feed/post2
+    # github
+    - https://github.com/repositories/NER
+    - https://github.com/repositories/SentimentAnalysis

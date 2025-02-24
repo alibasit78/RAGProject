@@ -1,0 +1,42 @@
+TODO's:
+1. Given a list of links (e.g., linkedin post, medium blog, github repo, etc.) for each user, crawl the web pages and store them in the NoSQL database. While storing the different web pages ensures that each web page is categorized and stored accordingly.
+
+domain
+Entities:
+- User
+
+domain
+- Document
+    - Post
+    - Article
+    - Github
+    ...
+    All the above documents are going to be stored in the NoSQLBaseDocument ? 
+
+application
+- Crawler()
+    - SeleniumCrawler
+    - LinkedinCrawler:
+        Input: link
+        Output: Post (linkedin post)
+    - ArticleCrawler
+    - GithubCrawler
+    ...
+
+
+2. Given the raw data of each categories (e.g., linkedin posts, medium blog, repo), clean, followed by chunk, followed by embedding, and finally store them in the separate database (here keep them hypothetically).
+
+- CleanedDocument
+    - CleanedPost
+    - CleanedArticle
+    - CleanedGithub
+
+- ChunkDocument
+    - ChunkPost
+    - ChunkArticle
+    - ChunkGithub
+
+- EmbedDocument
+    - EmbedPost
+    - EmbedArticle
+    - EmbedGithub
