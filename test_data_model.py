@@ -10,3 +10,5 @@ if __name__ == '__main__':
     #####################################333
     article_document = ArticleDocument.get_object_(id_ = "d987a85f-b768-45a8-95f2-327b915e78c2", platform = "medium")
     print(article_document, type(article_document))
+    user_document = ArticleDocument.get_object_(id_ = "7aef6759-6c5d-4cd6-b663-43a00b57bee9", platform = "user")
+    print(user_document, type(user_document))

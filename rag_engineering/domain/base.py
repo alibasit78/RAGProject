@@ -18,7 +18,7 @@ class NoSQLBaseDocument(BaseModel, ABC):
     @classmethod
     def get_object_(cls, id_, **kwargs):
         platform = kwargs['platform']
-        load_pickle(os.path.join(DIR_NAME, platform+"_"+str(id_)+".pkl"))
+        return load_pickle(os.path.join(DIR_NAME, platform+"_"+str(id_)+".pkl"))
         
     @classmethod
     def save_to_db(model):
