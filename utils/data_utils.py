@@ -1,5 +1,14 @@
 import os
 from data.sample_data import authors
+import pickle
+
+def save_pickle(model, file_path: str):
+    with open(file_path, "wb") as fw:
+        pickle.dump(model, fw)
+
+def load_pickle(file_path):
+    with open(file_path, "rb") as fr:
+        return pickle.load(fr)
 
 def get_links(sample_dataset):
     links = []
