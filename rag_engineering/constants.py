@@ -1,0 +1,1 @@
+DIR_NAME:str = r'C:\Users\DELL\Downloads\projects\MyAssistant\RAGProject\data\domain'

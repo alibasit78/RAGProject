@@ -5,3 +5,6 @@ def data_etl(user_full_name: str, links: list[str]) -> str:
     print(user)
     # last_step = crawl_links(user=user, links = links)
     # return last_step  
+
+if __name__ == "__main__":
+    data_etl(user_full_name='vivek kumar gupta', links = [])
