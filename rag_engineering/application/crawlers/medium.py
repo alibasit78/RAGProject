@@ -10,8 +10,8 @@ class MediumCrawler(BaseSeleniumCrawler):
         topic = link.split("/")[-1].replace("-", " ")
         content = ""
         for sample_dataset in [sample_dataset1, sample_dataset2]:
-            if topic in sample_dataset['LinkedIn']:
-                content = sample_dataset['LinkedIn'][topic]
+            if topic in sample_dataset['Medium']:
+                content = sample_dataset['Medium'][topic]
                 break
         # print("topic: ", topic)
         # print("content: ", content)
@@ -21,13 +21,13 @@ class MediumCrawler(BaseSeleniumCrawler):
             content={"content": content},
             name=topic,
             link=link,
-            platform="linkedin",
+            platform="medium",
             author_id=user.id,
             author_full_name=user.full_name,
         )
         self.model.save(instance)
         self.scroll_page()        
-        logger.info(f"Completed scrolling page!")
+        logger.info(f"Completed scrolling medium page!")
         
 if __name__ == "__main__":
     medium_crawler = MediumCrawler()
