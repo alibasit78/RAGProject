@@ -16,11 +16,30 @@ def query_data_warehouse(author_file_name: list[str]):
         # logger.info(f"Getting the author: {author_full_name}")
         # logger.info(f"Author : {author}")
         results = fetch_all_data(author)
-        # logger.info(f"Results: {results}")
-        documents.extend(results)
-    logger.info(f"Completed the query_data_warehouse step: {documents}")
+        documents.extend([doc for result in results.values() for doc in result])
+        # for result in results.values():
+        #     documents.extend(result)
+    logger.info(f"Completed the query_data_warehouse step: {len(documents)}")
+    logger.info(f"metadata: {_get_metadata(documents)}")
+    logger.info(f"All documents: {documents}")
     return documents
 
+def _get_metadata(documents):
+    metadata = {"num_documents": len(documents)}
+    for document in documents:
+        collection_name = document.get_collection_name()
+        print("collection_name: ", collection_name, type(collection_name))
+        if collection_name not in metadata:
+            metadata[collection_name] = {}
+        if "authors" not in metadata[collection_name]:
+            metadata[collection_name]["authors"] = []
+        metadata[collection_name]["num_documents"] = metadata[collection_name].get("num_documents", 0) + 1
+        # print("metadata: ", metadata[collection_name]["authors"])
+        metadata[collection_name]["authors"].append(document.author_full_name)
+    return metadata
+        
+
+# The below functions can be added in the utils.py file
 def fetch_all_data(author):
     # author_dir_path = os.path.join(MONGO_DB_DIR_NAME, author.full_name)
     user_full_name = author.full_name
@@ -59,6 +78,7 @@ def __fetch_data(user_full_name, data_type, document_type):
             data.append(document_type.get_object_(filename.split("_")[-1].split(".")[0], author_full_name=user_full_name))
     logger.info(f"Found {len(data)} {data_type} for {user_full_name}")
     return data
+
 if __name__ == "__main__":
     query_data_warehouse(["author 1", "author 2"])
            
