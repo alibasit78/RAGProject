@@ -27,3 +27,4 @@ def main(
 
 if __name__ == "__main__":
     main(run_etl=True, etl_config_filename="data_etl_author1_1.yaml")
+    # main(run_etl=True, etl_config_filename="data_etl_author2_2.yaml")
