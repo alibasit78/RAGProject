@@ -5,8 +5,8 @@ import uuid
 from pydantic import UUID4, BaseModel, Field
 from loguru import logger
 from utils import save_pickle, load_pickle
-from rag_engineering.constants import MONGO_DB_DIR_NAME, VECTOR_DB_DIR_NAME
-from .exceptions import IncorrectConfigured
+from rag_engineering.constants import MONGO_DB_DIR_NAME
+from ..exceptions import IncorrectConfigured
 
 class NoSQLBaseDocument(BaseModel, ABC):
     id: UUID4 = Field(default_factory=uuid.uuid4)

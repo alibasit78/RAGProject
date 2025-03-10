@@ -1,4 +1,4 @@
-from rag_engineering.domain.base import NoSqlBaseDocument
+from rag_engineering.domain.base import NoSQLBaseDocument
 from rag_engineering.domain.types import DataCategory
 from loguru import logger
 from rag_engineering.application.preprocessing import ArticleCleaningHandler, PostCleaningHandler, RepositoryCleaningHandler
@@ -18,7 +18,7 @@ class CleaningHandlerFactory:
 class CleaningDispatcher:
     factory = CleaningHandlerFactory()
     @classmethod
-    def dispatch(cls, data_model: NoSqlBaseDocument):
+    def dispatch(cls, data_model: NoSQLBaseDocument):
         data_category = DataCategory(data_model.get_collection_name())
         handler = cls.factory.create_cleaning_handler(data_category)
         cleaned_data = handler.clean(data_model)
