@@ -1,7 +1,7 @@
 from rag_engineering.domain.base import NoSqlBaseDocument
 from rag_engineering.domain.types import DataCategory
 from loguru import logger
-
+from rag_engineering.application.preprocessing.cleaning_data_handlers import ArticleCleaningHandler, PostCleaningHandler, RepositoryCleaningHandler
 class CleaningHandlerFactory:
     @staticmethod
     def create_cleaning_handler(data_category: str):
