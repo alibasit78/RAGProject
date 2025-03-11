@@ -1,5 +1,4 @@
-
-
+from steps import feature_engineering as fe_steps
 def feature_engineering(author_full_names: list[str]):
     """
     _description: 
@@ -12,4 +11,8 @@ def feature_engineering(author_full_names: list[str]):
     Args:
         author_full_names (list[str]): _description_
     """
-    pass    
+    documents = fe_steps.query_data_warehouse(author_full_names)
+    
+    
+if __name__ == "__main__":
+    feature_engineering(author_full_names=['author 1', 'author 2'])

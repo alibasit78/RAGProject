@@ -6,5 +6,5 @@ def clean_documents(documents: Annotated[list, "raw_documents"]) -> Annotated[li
     for document in documents:
         cleaned_document = CleaningDispatcher.dispatch(document)
         cleaned_documents.append(cleaned_document)
-    return cleaned_documents    
+    return cleaned_document
     

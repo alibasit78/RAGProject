@@ -71,17 +71,15 @@ def __fetch_posts(user_full_name):
 def __fetch_data(user_full_name, data_type, document_type):
     user_dir_path = os.path.join(MONGO_DB_DIR_NAME, user_full_name)
     if not os.path.exists(user_dir_path):
+        logger.info(f"User directory not found: {user_dir_path}")
         return []
     data = []
     for filename in os.listdir(user_dir_path):
         if filename.startswith(data_type):
+            logger.info(f"Found {data_type} file: {filename}")
             data.append(document_type.get_object_(filename.split("_")[-1].split(".")[0], author_full_name=user_full_name))
     logger.info(f"Found {len(data)} {data_type} for {user_full_name}")
     return data
 
 if __name__ == "__main__":
     query_data_warehouse(["author 1", "author 2"])
-           
-        
-
-        
