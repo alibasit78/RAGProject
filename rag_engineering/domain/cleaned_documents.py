@@ -7,7 +7,7 @@ class CleanedDocument(VectorBaseDocument, ABC):
     content: str
     platform: str
     author_full_name: str
-    author_id: UUID4
+    # author_id: UUID4
 
 class CleanedArticleDocument(CleanedDocument):
     link: str

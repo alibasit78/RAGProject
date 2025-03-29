@@ -6,10 +6,10 @@ from rag_engineering.application.utils import split_user_full_name
 from loguru import logger
 import os
 
-def query_data_warehouse(author_file_name: list[str]):
+def query_data_warehouse(author_full_names: list[str]):
     authors = []
     documents = []
-    for author_full_name in author_file_name:
+    for author_full_name in author_full_names:
         first_name, last_name = split_user_full_name(author_full_name)
         author = UserDocument.get_or_create(first_name=first_name, last_name=last_name)
         authors.append(author)

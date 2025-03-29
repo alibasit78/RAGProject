@@ -12,7 +12,7 @@ def feature_engineering(author_full_names: list[str]):
         author_full_names (list[str]): _description_
     """
     documents = fe_steps.query_data_warehouse(author_full_names)
-    
+    cleaned_documents = fe_steps.clean_documents(documents)
     
 if __name__ == "__main__":
     feature_engineering(author_full_names=['author 1', 'author 2'])
